@@ -20,12 +20,6 @@
     <meta property="og:description" content="Founder & Developer at CarbonIt Labs. Building AI decision intelligence, PQC secure networks, esoteric languages, and interactive web games. Author of Cosmo boy.">
     <meta property="og:site_name" content="Edwin Sam K Reju Portfolio">
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://edwinsamkreju.github.io/">
-    <meta name="twitter:title" content="Edwin Sam K Reju | Founder, Developer & Author">
-    <meta name="twitter:description" content="Founder & Developer at CarbonIt Labs. Building AI decision intelligence, PQC secure networks, esoteric languages, and interactive web games. Author of Cosmo boy.">
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -35,12 +29,30 @@
             theme: {
                 extend: {
                     colors: {
-                        carbon: '#0f172a', // Slate 900
-                        accent: '#38bdf8', // Light Blue
+                        carbon: '#090e17', 
+                        surface: '#111827',
+                        accent: '#3b82f6', 
+                        accentLight: '#60a5fa',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
                         mono: ['Fira Code', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
                     }
                 }
             }
@@ -82,120 +94,39 @@
           "@id": "https://edwinsamkreju.github.io/#person",
           "mainEntityOfPage": { "@id": "https://edwinsamkreju.github.io/#webpage" },
           "name": "Edwin Sam K Reju",
-          "alternateName": [
-            "Edwin Sam",
-            "Edwin Reju",
-            "Edwin K. Reju",
-            "Essa",
-            "Edwin Sam .K Reju"
-          ],
+          "givenName": "Edwin",
+          "alternateName": ["Edwin Sam", "Edwin Reju", "Edwin K. Reju", "Essa", "Edwin Sam .K Reju", "SAM"],
           "url": "https://edwinsamkreju.github.io/",
-          "jobTitle": ["Founder", "Software Developer", "Author", "Entrepreneur"],
+          "jobTitle": ["Founder", "CEO", "Software Developer", "Author", "Entrepreneur", "YouTuber"],
           "gender": "Male",
           "birthDate": "2009-03-21",
-          "birthPlace": {
-            "@type": "Place",
-            "name": "Kannur, Kerala, India"
-          },
-          "nationality": {
-            "@type": "Country",
-            "name": "India"
-          },
+          "birthPlace": { "@type": "Place", "name": "Kannur, Kerala, India" },
+          "nationality": { "@type": "Country", "name": "India" },
           "knowsLanguage": ["English", "Malayalam", "Hindi"],
           "worksFor": { "@id": "https://edwinsamkreju.github.io/#organization" },
           "sameAs": [
             "https://github.com/edwinsamkreju",
             "https://linkedin.com/in/edwinsamkreju",
+            "https://x.com/edwinsamkreju",
+            "https://instagram.com/edwinsamkreju",
+            "https://facebook.com/edwin.samkreju",
+            "https://www.youtube.com/@edwinsamkreju",
+            "https://www.youtube.com/channel/UCwYQjrZRlMd6LdkfFR9kOxw",
             "https://www.wikidata.org/wiki/Q140739171"
           ],
-          "description": "Founder and Developer at CarbonIt Labs. Creator of Opinova, DotCode, CarbonIt Messenger, and Super Tic-Tac-Toe. Author of Cosmo boy.",
+          "description": "Indian software developer, author, and entrepreneur. Founder and CEO of CarbonIt Labs. Creator of Opinova, DotCode, CarbonIt Messenger, and Super Tic-Tac-Toe. Author of Cosmo Boy: Journey to the Edge of the Universe.",
           "hasCredential": [
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "Overview Remote Sensing Technology",
-              "recognizedBy": { "@type": "Organization", "name": "IIRS, Indian Space Research Organization (ISRO)" },
-              "dateCreated": "2024-04"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "Google AI-Powered Shopping Ads Certification",
-              "recognizedBy": { "@type": "Organization", "name": "Google" },
-              "identifier": "263877482",
-              "dateCreated": "2024-02"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "NASA Fundamentals of Remote Sensing",
-              "recognizedBy": { "@type": "Organization", "name": "NASA - National Aeronautics and Space Administration" },
-              "dateCreated": "2025-07"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "AI Appreciate Badge - AI For All",
-              "recognizedBy": { "@type": "Organization", "name": "Central Board of Secondary Education" },
-              "identifier": "U2FsdGVkX18Km9xNSfUmaPiONixt3EUBjbpa959jOeV7FIU2KSnzs1L2a3S4hUKCjesG0XZm",
-              "dateCreated": "2026-02"
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "AI Aware Badge - AI For All",
-              "recognizedBy": { "@type": "Organization", "name": "Intel" },
-              "identifier": "U2FsdGVkX18TxRSzkkCeb0uOSA2fp1L2u3SQSxL3365e4oSlwfbbWU1f6m0WiY63GR6zsV",
-              "dateCreated": "2026-02"
-            }
+             { "@type": "EducationalOccupationalCredential", "name": "Overview Remote Sensing Technology", "recognizedBy": { "@type": "Organization", "name": "IIRS, Indian Space Research Organization (ISRO)" }, "dateCreated": "2024-04" },
+             { "@type": "EducationalOccupationalCredential", "name": "Google AI-Powered Shopping Ads Certification", "recognizedBy": { "@type": "Organization", "name": "Google" }, "dateCreated": "2024-02" }
           ]
         },
         {
           "@type": "Book",
           "@id": "https://edwinsamkreju.github.io/#book-cosmoboy",
-          "name": "Cosmo boy",
-          "alternateName": "Cosmo Boy: Journey to the Edge of the Universe",
+          "name": "Cosmo Boy: Journey to the Edge of the Universe",
+          "alternateName": "Cosmo boy",
           "genre": "Science Fiction",
           "author": { "@id": "https://edwinsamkreju.github.io/#person" }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://edwinsamkreju.github.io/#opinova",
-          "name": "Opinova",
-          "applicationCategory": "BusinessApplication",
-          "description": "AI-powered decision intelligence platform that transforms thousands of opinions into clear priorities and actionable insights.",
-          "creator": { "@id": "https://edwinsamkreju.github.io/#person" },
-          "publisher": { "@id": "https://edwinsamkreju.github.io/#organization" },
-          "license": "https://www.apache.org/licenses/LICENSE-2.0"
-        },
-        {
-          "@type": "SoftwareSourceCode",
-          "@id": "https://edwinsamkreju.github.io/#dotcode",
-          "name": "DotCode",
-          "description": "A family of dot-based esoteric programming languages with reversible, Python-interoperable tooling.",
-          "creator": { "@id": "https://edwinsamkreju.github.io/#person" },
-          "programmingLanguage": "Python",
-          "license": "https://opensource.org/licenses/MIT",
-          "codeRepository": "https://github.com/CarbonIt-Labs/dotcode",
-          "sameAs": "https://pypi.org/project/dotcode/"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://edwinsamkreju.github.io/#carbonitmessenger",
-          "name": "CarbonIt Messenger",
-          "applicationCategory": "CommunicationApplication",
-          "description": "Tor-based serverless PQC encryption enabled messenger with parallel streams file transfer and chunking mechanism.",
-          "creator": { "@id": "https://edwinsamkreju.github.io/#person" },
-          "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-          "featureList": [
-            "PQC Encryption Enabled: Implements Post-Quantum Cryptography to secure communications against theoretical quantum computer attacks.",
-            "Serverless Architecture: Operates entirely peer-to-peer over the Tor network, eliminating central points of failure or surveillance.",
-            "Parallel Streams File Transfer: Features an advanced chunking mechanism allowing high-speed, reliable file transfers over decentralized networks."
-          ]
-        },
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://edwinsamkreju.github.io/#supertictactoe",
-          "name": "Super Tic-Tac-Toe",
-          "applicationCategory": "GameApplication",
-          "url": "https://edwinsamkreju.github.io/supertictactoe/",
-          "description": "Modern, browser-based 9x9 Ultimate Tic-Tac-Toe game with AI and two-player modes built with HTML5, CSS3, and JavaScript.",
-          "creator": { "@id": "https://edwinsamkreju.github.io/#person" }
         }
       ]
     }
@@ -203,283 +134,319 @@
 
     <style>
         /* Base styles & Scrollbar */
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
         
         body {
-            background-color: #0f172a;
+            background-color: #090e17;
             color: #f8fafc;
+            overflow-x: hidden;
         }
         
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #090e17; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
         .gradient-text {
-            background: linear-gradient(to right, #38bdf8, #818cf8);
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .code-block {
-            background-color: #0f172a;
-            border: 1px solid #334155;
+        .glass-card {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays for grid items */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
     </style>
 </head>
-<body class="antialiased selection:bg-accent selection:text-carbon relative">
+<body class="antialiased selection:bg-accent/30 selection:text-white relative">
+
+    <!-- Ambient Background Blobs (Premium Touch) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none opacity-40 mix-blend-screen">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-600/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-600/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-indigo-600/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 bg-carbon/80 backdrop-blur-md border-b border-slate-800">
+    <nav class="fixed w-full z-50 top-0 glass-card border-b-0 border-white/10 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-tight text-white">ES<span class="text-accent">.</span></a>
+            <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-1">
+                ES<span class="text-accentLight">.</span>
+            </a>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-accent transition-colors">About</a>
-                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-                <a href="#certifications" class="hover:text-accent transition-colors">Certifications</a>
-                <a href="#book" class="hover:text-accent transition-colors">Author</a>
-                <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#certifications" class="hover:text-white transition-colors">Certifications</a>
+                <a href="#book" class="hover:text-white transition-colors">Author</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2 -mr-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/5 absolute w-full left-0 top-16 shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col text-center">
+                <a href="#about" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">About</a>
+                <a href="#projects" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Projects</a>
+                <a href="#certifications" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Certifications</a>
+                <a href="#book" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Author</a>
+                <a href="#contact" class="mobile-link block px-3 py-3 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-[85vh] flex flex-col justify-center">
-        <div class="space-y-6">
-            <p class="text-accent font-mono text-sm uppercase tracking-widest">Hello World, I am</p>
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">
+    <section id="about" class="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center relative z-10">
+        <div class="space-y-6 max-w-4xl opacity-0 animate-fade-in-up">
+            <p class="text-accentLight font-mono text-sm md:text-base uppercase tracking-widest font-semibold">Hello, I am</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-tight">
                 Edwin Sam K Reju.
             </h1>
-            <h2 class="text-4xl md:text-6xl font-bold text-slate-400">
-                I build intelligent, secure, and esoteric systems.
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-400 leading-tight">
+                I build intelligent, <span class="gradient-text">secure systems.</span>
             </h2>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mt-6">
-                Founder & Developer at <strong class="text-slate-200">CarbonIt Labs</strong>. 
-                I specialize in AI-powered decision intelligence, Post-Quantum Cryptography (PQC) networks, esoteric programming languages, and interactive web applications. I am also the author of the book <em class="text-slate-200 font-medium">Cosmo boy</em>.
+            <p class="text-base md:text-xl text-slate-400 leading-relaxed mt-6 max-w-2xl font-light">
+                Founder & CEO at <strong class="text-white font-medium">CarbonIt Labs</strong>. 
+                Specializing in AI decision intelligence, Post-Quantum Cryptography, esoteric languages, and interactive platforms. Author of the sci-fi novel <em class="text-slate-200">Cosmo Boy: Journey to the Edge of the Universe</em>.
             </p>
-            <div class="pt-8 flex flex-wrap gap-4">
-                <a href="#projects" class="px-6 py-3 bg-accent text-carbon font-semibold rounded-lg hover:bg-sky-400 transition-colors">View Projects</a>
-                <a href="#contact" class="px-6 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 transition-colors">Contact Me</a>
+            <div class="pt-8 flex flex-col sm:flex-row gap-4">
+                <a href="#projects" class="px-8 py-4 bg-white text-carbon font-semibold rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 text-center">
+                    Explore My Work
+                </a>
+                <a href="#contact" class="px-8 py-4 glass-card border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 text-center">
+                    Connect With Me
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 bg-slate-900/50">
+    <section id="projects" class="py-24 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-center mb-12">
-                <h2 class="text-3xl font-bold text-white">Selected Works</h2>
-                <div class="h-[1px] bg-slate-700 flex-grow ml-6"></div>
+            <div class="flex items-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Selected Innovations</h2>
+                <div class="h-[1px] bg-gradient-to-r from-white/20 to-transparent flex-grow ml-6"></div>
             </div>
 
-            <div class="space-y-16">
+            <div class="space-y-12">
                 
                 <!-- Project 1: Opinova -->
-                <article class="bg-slate-800/40 border border-slate-700 p-8 md:p-10 rounded-2xl relative overflow-hidden">
-                    <div class="flex flex-wrap items-center gap-3 mb-4">
-                        <span class="px-3 py-1 text-xs font-mono text-accent bg-accent/10 rounded-full border border-accent/20">CarbonIt Labs</span>
-                        <span class="px-3 py-1 text-xs font-mono text-emerald-400 bg-emerald-400/10 rounded-full border border-emerald-400/20">Apache License 2.0</span>
-                    </div>
-
-                    <h3 class="text-3xl font-bold text-white mb-2">Opinova</h3>
-                    <p class="text-accent font-medium mb-4">AI-Powered Decision Intelligence Platform</p>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-4xl mb-8">
-                        Transforms thousands of opinions, complaints, and suggestions into clear priorities and actionable insights. Opinova helps institutions understand collective voices, identify critical concerns, and convert feedback into meaningful actions.
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6 pt-6 border-t border-slate-700/60">
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1.5a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                <article class="glass-card p-6 md:p-10 rounded-3xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="px-3 py-1.5 text-xs font-medium text-accentLight bg-accent/10 rounded-full border border-accent/20">CarbonIt Labs</span>
+                                <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/10">Apache 2.0</span>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Intelligent Understanding</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Analyzes feedback beyond simple counting by identifying underlying patterns, concerns, and important themes.
-                            </p>
+                            <a href="https://github.com/CarbonIt-Labs/Opinova" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                GitHub
+                            </a>
                         </div>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v25a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Priority Decision Support</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Evaluates criticality, urgency, impact, and reach to help organizations focus on what matters most.
-                            </p>
-                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Opinova</h3>
+                        <p class="text-accentLight font-medium mb-4 text-lg">AI-Powered Decision Intelligence</p>
+                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mb-8 font-light">
+                            Transforms thousands of opinions, complaints, and suggestions into clear priorities and actionable insights. Opinova helps institutions understand collective voices, identify critical concerns, and convert feedback into meaningful actions.
+                        </p>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6a2 2 0 012 2h2a2 2 0 002-2M9 19a2 2 0 002 2h2a2 2 0 002-2M9 19custom"></path></svg>
+                        <div class="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-accentLight flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1.5a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Intelligent Understanding</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Analyzes feedback beyond counting, identifying underlying patterns, and important themes.</p>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Explainable Dashboard</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Transparent reasoning behind priorities, emerging concerns, and clear action recommendations.
-                            </p>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-accentLight flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Priority Support</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Evaluates criticality, urgency, and impact to help organizations focus on what matters most.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-accentLight flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6a2 2 0 012 2h2a2 2 0 002-2M9 19a2 2 0 002 2h2a2 2 0 002-2M9 19custom"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Explainable Dashboard</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Transparent reasoning behind priorities, emerging concerns, and action recommendations.</p>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 2: CarbonIt Messenger -->
-                <article class="bg-slate-800/40 border border-slate-700 p-8 md:p-10 rounded-2xl relative overflow-hidden">
-                    <div class="flex flex-wrap items-center gap-3 mb-4">
-                        <span class="px-3 py-1 text-xs font-mono text-purple-400 bg-purple-400/10 rounded-full border border-purple-400/20">Cybersecurity</span>
-                        <span class="px-3 py-1 text-xs font-mono text-slate-400 bg-slate-800 rounded-full border border-slate-700">Tor Network</span>
-                        <span class="px-3 py-1 text-xs font-mono text-amber-400 bg-amber-400/10 rounded-full border border-amber-400/20">GPL-3.0 License</span>
-                        <span class="px-3 py-1 text-xs font-mono text-accent bg-accent/10 rounded-full border border-accent/20">CarbonIt Labs</span>
-                    </div>
-
-                    <h3 class="text-3xl font-bold text-white mb-2">CarbonIt Messenger</h3>
-                    <p class="text-accent font-medium mb-4">Decentralized Secure Communication Protocol</p>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-4xl mb-8">
-                        A Tor-based, serverless, PQC encryption enabled messenger with parallel streams file transfer and chunking mechanism. Engineered to withstand present and future network surveillance threats.
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6 pt-6 border-t border-slate-700/60">
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <article class="glass-card p-6 md:p-10 rounded-3xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="px-3 py-1.5 text-xs font-medium text-purple-400 bg-purple-400/10 rounded-full border border-purple-400/20">Cybersecurity</span>
+                                <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/10">Tor Network</span>
+                                <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/10">GPL-3.0</span>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">PQC Encryption Enabled</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Implements Post-Quantum Cryptography to secure communications against theoretical quantum computer attacks.
-                            </p>
+                            <a href="https://github.com/CarbonIt-Labs/CarbonIt-Messenger" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                GitHub
+                            </a>
                         </div>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Serverless Architecture</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Operates entirely peer-to-peer over the Tor network, eliminating central points of failure or surveillance.
-                            </p>
-                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">CarbonIt Messenger</h3>
+                        <p class="text-purple-400 font-medium mb-4 text-lg">Decentralized Secure Protocol</p>
+                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mb-8 font-light">
+                            A Tor-based, serverless, PQC encryption enabled messenger with parallel streams file transfer and chunking mechanism. Engineered to withstand present and future network surveillance threats.
+                        </p>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        <div class="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-purple-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">PQC Encryption</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Implements Post-Quantum Cryptography against theoretical quantum computer attacks.</p>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Parallel Streams File Transfer</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Features an advanced chunking mechanism allowing high-speed, reliable file transfers over decentralized networks.
-                            </p>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-purple-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Serverless Architecture</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Operates entirely P2P over the Tor network, eliminating central points of failure.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-purple-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Parallel Transfers</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Advanced chunking mechanism allowing high-speed, reliable decentralized file transfers.</p>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 3: DotCode -->
-                <article class="bg-slate-800/40 border border-slate-700 p-8 md:p-10 rounded-2xl relative overflow-hidden">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                        <div class="flex flex-wrap items-center gap-3">
-                            <span class="px-3 py-1 text-xs font-mono text-cyan-400 bg-cyan-400/10 rounded-full border border-cyan-400/20">Esoteric Languages</span>
-                            <span class="px-3 py-1 text-xs font-mono text-blue-400 bg-blue-400/10 rounded-full border border-blue-400/20">MIT License</span>
-                            <span class="px-3 py-1 text-xs font-mono text-slate-400 bg-slate-800 rounded-full border border-slate-700">PyPI</span>
-                        </div>
-                        <a href="https://pypi.org/project/dotcode/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-accent hover:text-white transition-colors">
-                            View on PyPI
-                            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-
-                    <h3 class="text-3xl font-bold text-white mb-2">DotCode</h3>
-                    <p class="text-accent font-medium mb-4">Reversible Dot-Based Programming Suite</p>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-4xl mb-8">
-                        A family of dot-based esoteric programming languages with reversible, Python-interoperable tooling. Features <strong>Dot</strong> (unary dot-length encoding, <code class="text-accent">*.dcode</code>) and <strong>NumDot</strong> (numeric dot-terminated, <code class="text-accent">*.nd</code>).
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6 pt-6 border-t border-slate-700/60">
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <article class="glass-card p-6 md:p-10 rounded-3xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="px-3 py-1.5 text-xs font-medium text-cyan-400 bg-cyan-400/10 rounded-full border border-cyan-400/20">Esoteric Languages</span>
+                                <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/10">MIT License</span>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Quick Installation</h4>
-                            <div class="code-block p-3 rounded-lg font-mono text-xs text-green-400">
-                                $ pip install dotcode
+                            <div class="flex items-center gap-3">
+                                <a href="https://pypi.org/project/dotcode/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                    PyPI
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                                <a href="https://github.com/CarbonIt-Labs/dotcode" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                    GitHub
+                                </a>
                             </div>
                         </div>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                            </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Dot & NumDot CLI</h4>
-                            <div class="code-block p-3 rounded-lg font-mono text-xs text-slate-300">
-                                $ dot compile hello.py<br>
-                                $ numdot run hello.nd
-                            </div>
-                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">DotCode</h3>
+                        <p class="text-cyan-400 font-medium mb-4 text-lg">Reversible Dot-Based Suite</p>
+                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mb-8 font-light">
+                            A family of dot-based esoteric programming languages with reversible, Python-interoperable tooling. Features <strong>Dot</strong> (unary dot-length encoding) and <strong>NumDot</strong> (numeric dot-terminated).
+                        </p>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <div class="grid md:grid-cols-2 gap-6 pt-8 border-t border-white/5">
+                            <div class="bg-black/20 p-5 rounded-2xl border border-white/5 font-mono text-sm">
+                                <p class="text-slate-500 mb-2">// Installation & Usage</p>
+                                <p class="text-emerald-400 mb-1">$ pip install dotcode</p>
+                                <p class="text-slate-300">$ dot compile script.py</p>
+                                <p class="text-slate-300">$ numdot run script.nd</p>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Lossless & Reversible</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Provides 100% losslessly reversible code compilation and execution with built-in runtime decoders.
-                            </p>
+                            <div class="flex flex-col justify-center">
+                                <h4 class="text-white font-semibold text-lg mb-2">Lossless & Reversible</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">
+                                    Provides 100% losslessly reversible code compilation and execution with built-in runtime decoders for seamless interoperability.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <!-- Project 4: Super Tic-Tac-Toe -->
-                <article class="bg-slate-800/40 border border-slate-700 p-8 md:p-10 rounded-2xl relative overflow-hidden">
-                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                        <div class="flex flex-wrap items-center gap-3">
-                            <span class="px-3 py-1 text-xs font-mono text-pink-400 bg-pink-400/10 rounded-full border border-pink-400/20">Browser Game</span>
-                            <span class="px-3 py-1 text-xs font-mono text-slate-400 bg-slate-800 rounded-full border border-slate-700">HTML5 / CSS3 / JS</span>
-                            <span class="px-3 py-1 text-xs font-mono text-emerald-400 bg-emerald-400/10 rounded-full border border-emerald-400/20">AI & 2-Player</span>
-                        </div>
-                        <a href="https://edwinsamkreju.github.io/supertictactoe/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-accent hover:text-white transition-colors">
-                            Play Game
-                            <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                        </a>
-                    </div>
-
-                    <h3 class="text-3xl font-bold text-white mb-2">Super Tic-Tac-Toe</h3>
-                    <p class="text-accent font-medium mb-4">Ultimate 9x9 Browser Game</p>
-                    <p class="text-slate-300 text-lg leading-relaxed max-w-4xl mb-8">
-                        A modern, responsive 9x9 Ultimate Tic-Tac-Toe game featuring active grid highlighting, a real-time scoreboard, and vibrant UI optimized for desktop and mobile play.
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6 pt-6 border-t border-slate-700/60">
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <article class="glass-card p-6 md:p-10 rounded-3xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 reveal">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-400/10 rounded-full border border-emerald-400/20">Browser Game</span>
+                                <span class="px-3 py-1.5 text-xs font-medium text-slate-300 bg-white/5 rounded-full border border-white/10">HTML5/CSS3/JS</span>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">AI & Two-Player Modes</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Challenge intelligent bot opponents or play head-to-head locally in two-player mode.
-                            </p>
+                            <div class="flex items-center gap-3">
+                                <a href="https://edwinsamkreju.github.io/supertictactoe/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                    Play Game
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                                <a href="https://github.com/edwinsamkreju/supertictactoe" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-medium text-white transition-colors">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                    GitHub
+                                </a>
+                            </div>
                         </div>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                            </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Active Grid Highlighting</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Visual feedback directing players to valid active 3x3 sub-grids according to ultimate rules.
-                            </p>
-                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Super Tic-Tac-Toe</h3>
+                        <p class="text-emerald-400 font-medium mb-4 text-lg">Ultimate 9x9 Browser Game</p>
+                        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-4xl mb-8 font-light">
+                            A modern, responsive 9x9 Ultimate Tic-Tac-Toe game featuring active grid highlighting, a real-time scoreboard, and vibrant UI optimized for desktop and mobile play.
+                        </p>
 
-                        <div class="bg-slate-900/60 p-6 rounded-xl border border-slate-800">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div class="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-emerald-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">AI & Two-Player</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Challenge intelligent bot opponents or play head-to-head locally in two-player mode.</p>
                             </div>
-                            <h4 class="text-white font-semibold text-lg mb-2">Responsive Colorful UI</h4>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Smooth layout built with pure HTML5, CSS3, and JS with live scorekeeping on mobile and desktop.
-                            </p>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-emerald-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Grid Highlighting</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Visual feedback directing players to valid active 3x3 sub-grids per ultimate rules.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-emerald-400 flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <h4 class="text-white font-semibold text-lg">Responsive UI</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Smooth layout built with HTML5, CSS3, JS featuring live desktop & mobile scorekeeping.</p>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -489,148 +456,200 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-20 px-6">
+    <section id="certifications" class="py-24 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-center mb-12">
-                <h2 class="text-3xl font-bold text-white">Certifications & Badges</h2>
-                <div class="h-[1px] bg-slate-700 flex-grow ml-6"></div>
+            <div class="flex items-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Credentials & Badges</h2>
+                <div class="h-[1px] bg-gradient-to-r from-white/20 to-transparent flex-grow ml-6"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <!-- Cert 1: ISRO Remote Sensing -->
-                <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert 1 -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1 hover:border-white/20 transition-all duration-300 reveal delay-100">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 text-xs font-mono text-orange-400 bg-orange-400/10 rounded-full border border-orange-400/20">ISRO / IIRS</span>
-                            <span class="text-xs font-mono text-slate-400">Apr 2024</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-medium text-orange-400 bg-orange-400/10 rounded-full">ISRO / IIRS</span>
+                            <span class="text-xs font-mono text-slate-500">Apr 2024</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Overview Remote Sensing Technology</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            Indian Institute of Remote Sensing (IIRS), Indian Space Research Organization (ISRO)
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-500 font-mono">
-                        <span>Remote Sensing & Geospatial</span>
-                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span> Verified</span>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">Overview Remote Sensing Technology</h3>
+                        <p class="text-slate-400 text-sm mb-4">Indian Space Research Organization</p>
                     </div>
                 </div>
 
-                <!-- Cert 2: Google AI Shopping Ads -->
-                <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+                <!-- Cert 2 -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1 hover:border-white/20 transition-all duration-300 reveal delay-200">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 text-xs font-mono text-sky-400 bg-sky-400/10 rounded-full border border-sky-400/20">Google</span>
-                            <span class="text-xs font-mono text-slate-400">Feb 2024</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-medium text-blue-400 bg-blue-400/10 rounded-full">Google</span>
+                            <span class="text-xs font-mono text-slate-500">Feb 2024</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-1">Google AI-Powered Shopping Ads Certification</h3>
-                        <p class="text-slate-400 text-sm mb-3">Google</p>
-                        <p class="text-xs font-mono text-slate-500 mb-4">Credential ID: <span class="text-slate-300">263877482</span></p>
-                        <div class="flex flex-wrap gap-2 mb-2">
-                            <span class="px-2 py-0.5 text-xs bg-slate-900 border border-slate-800 text-slate-400 rounded">Artificial Intelligence (AI)</span>
-                            <span class="px-2 py-0.5 text-xs bg-slate-900 border border-slate-800 text-slate-400 rounded">Analytical Skills</span>
-                        </div>
-                    </div>
-                    <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-500 font-mono">
-                        <span>Google Skillshop</span>
-                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span> Verified</span>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">AI-Powered Shopping Ads</h3>
+                        <p class="text-slate-400 text-sm mb-4">Google Skillshop</p>
                     </div>
                 </div>
 
-                <!-- Cert 3: NASA Remote Sensing -->
-                <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+                <!-- Cert 3 -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1 hover:border-white/20 transition-all duration-300 reveal delay-300">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 text-xs font-mono text-indigo-400 bg-indigo-400/10 rounded-full border border-indigo-400/20">NASA</span>
-                            <span class="text-xs font-mono text-slate-400">Jul 2025</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-medium text-indigo-400 bg-indigo-400/10 rounded-full">NASA</span>
+                            <span class="text-xs font-mono text-slate-500">Jul 2025</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">NASA Fundamentals of Remote Sensing</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            NASA - National Aeronautics and Space Administration
-                        </p>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">Fundamentals of Remote Sensing</h3>
+                        <p class="text-slate-400 text-sm mb-4">National Aeronautics and Space Administration</p>
                     </div>
-                    <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-500 font-mono">
-                        <span>Space Sciences & Earth Observation</span>
-                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span> Verified</span>
+                </div>
+                
+                <!-- Cert 4 -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1 hover:border-white/20 transition-all duration-300 reveal delay-100 lg:col-span-1 md:col-span-2">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-medium text-green-400 bg-green-400/10 rounded-full">CBSE</span>
+                            <span class="text-xs font-mono text-slate-500">Feb 2026</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">AI Appreciate Badge - AI For All</h3>
+                        <p class="text-slate-400 text-sm mb-4">Central Board of Secondary Education</p>
                     </div>
                 </div>
 
-                <!-- Cert 4: CBSE AI Appreciate -->
-                <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors">
+                <!-- Cert 5 -->
+                <div class="glass-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1 hover:border-white/20 transition-all duration-300 reveal delay-200 lg:col-span-2 md:col-span-2">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 text-xs font-mono text-purple-400 bg-purple-400/10 rounded-full border border-purple-400/20">CBSE</span>
-                            <span class="text-xs font-mono text-slate-400">Feb 2026</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 text-xs font-medium text-cyan-400 bg-cyan-400/10 rounded-full">Intel</span>
+                            <span class="text-xs font-mono text-slate-500">Feb 2026</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-1">AI Appreciate Badge - AI For All</h3>
-                        <p class="text-slate-400 text-sm mb-3">Central Board of Secondary Education</p>
-                        <p class="text-xs font-mono text-slate-500 mb-4 truncate">Credential ID: <span class="text-slate-300">U2FsdGVkX18Km9xNSfUmaPiONixt3EUB...</span></p>
-                    </div>
-                    <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-500 font-mono">
-                        <span>AI Readiness Initiative</span>
-                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span> Verified</span>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-snug">AI Aware Badge - AI For All</h3>
+                        <p class="text-slate-400 text-sm mb-4">Intel Corporation</p>
                     </div>
                 </div>
-
-                <!-- Cert 5: Intel AI Aware -->
-                <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-600 transition-colors md:col-span-2">
-                    <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-3 py-1 text-xs font-mono text-blue-400 bg-blue-400/10 rounded-full border border-blue-400/20">Intel</span>
-                            <span class="text-xs font-mono text-slate-400">Feb 2026</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-1">AI Aware Badge - AI For All</h3>
-                        <p class="text-slate-400 text-sm mb-3">Intel Corporation</p>
-                        <p class="text-xs font-mono text-slate-500 mb-4 truncate">Credential ID: <span class="text-slate-300">U2FsdGVkX18TxRSzkkCeb0uOSA2fp1L2u3SQSxL3365e4oSlwfbbWU1f6m0WiY63GR6zsV</span></p>
-                    </div>
-                    <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between text-xs text-slate-500 font-mono">
-                        <span>Digital Inclusion Program</span>
-                        <span class="text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span> Verified</span>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- Author/Book Section -->
-    <section id="book" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-3xl p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
+    <section id="book" class="py-24 px-6 relative z-10 reveal">
+        <div class="max-w-5xl mx-auto rounded-[2.5rem] p-10 md:p-16 text-center relative overflow-hidden bg-gradient-to-br from-surface to-[#0d1527] border border-white/5 shadow-2xl">
             <!-- Decorative circle -->
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl mix-blend-screen pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl mix-blend-screen pointer-events-none"></div>
             
-            <svg class="w-12 h-12 text-accent mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Author of "Cosmo boy"</h2>
-            <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
-                Beyond writing code and building platforms, I explore narratives and ideas through writing. Search for <strong class="text-white">Cosmo boy by Edwin Sam K Reju</strong> on Google to find my published work.
-            </p>
-            <a href="https://www.google.com/search?q=Cosmo+boy+book+Edwin+Sam+K+Reju" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:text-white transition-colors font-semibold">
-                Search the book
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
+            <div class="relative z-10">
+                <svg class="w-12 h-12 text-accentLight mx-auto mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">Author of "Cosmo Boy"</h2>
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Beyond engineering secure platforms, I explore vast narratives and futuristic concepts through science fiction writing. Discover my published work, <em class="text-white font-medium">Cosmo Boy: Journey to the Edge of the Universe</em>.
+                </p>
+                <a href="https://www.google.com/search?q=Cosmo+boy+book+Edwin+Sam+K+Reju" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 bg-white text-carbon font-semibold rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                    Search the Book
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer & Contact -->
-    <footer id="contact" class="border-t border-slate-800 bg-slate-900/50 pt-20 pb-10 px-6 mt-10 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold text-white mb-6">Let's Connect</h2>
-            <p class="text-slate-400 mb-10 text-lg">
-                Interested in AI decision intelligence, decentralized secure networks, or esoteric programming? Whether you have a question or just want to say hi, my inbox is open.
+    <footer id="contact" class="border-t border-white/5 bg-surface/30 backdrop-blur-md pt-24 pb-12 px-6 mt-12 relative z-10">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Let's Connect.</h2>
+            <p class="text-slate-400 mb-12 text-lg md:text-xl max-w-2xl mx-auto font-light">
+                Interested in AI decision intelligence, decentralized secure networks, or esoteric programming? My inbox is always open.
             </p>
-            <a href="mailto:contact@edwinsam.com" class="inline-block px-8 py-4 bg-white text-carbon font-bold rounded-lg hover:bg-slate-200 transition-colors mb-16">
+            
+            <a href="mailto:contact@edwinsam.com" class="inline-block px-10 py-4 glass-card border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 mb-16">
                 Say Hello
             </a>
+
+            <!-- Socials Glass Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-16 reveal delay-100">
+                <a href="https://github.com/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">GitHub</span>
+                </a>
+                
+                <a href="https://linkedin.com/in/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-[#0a66c2] transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">LinkedIn</span>
+                </a>
+
+                <a href="https://x.com/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">X (Twitter)</span>
+                </a>
+
+                <a href="https://instagram.com/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-[#e1306c] transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">Instagram</span>
+                </a>
+
+                <a href="https://facebook.com/edwin.samkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-[#1877f2] transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">Facebook</span>
+                </a>
+
+                <a href="https://www.youtube.com/@edwinsamkreju" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all group">
+                    <svg class="w-6 h-6 text-slate-400 group-hover:text-[#ff0000] transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <span class="font-medium text-slate-300 group-hover:text-white transition-colors">YouTube</span>
+                </a>
+            </div>
             
-            <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-slate-800 text-sm text-slate-500">
-                <p>&copy; 2026 CarbonIt Labs. Created by Edwin Sam K Reju.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://github.com/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
-                    <a href="https://linkedin.com/in/edwinsamkreju" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
-                </div>
+            <div class="pt-8 border-t border-white/10 text-sm text-slate-500">
+                <p>&copy; 2026 CarbonIt Labs. Edwin Sam K Reju.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        // --- Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const path = document.getElementById('menu-icon-path');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger
+            } else {
+                path.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Close X
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // --- Navbar Blur/Solid Effect on Scroll ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'bg-surface/80');
+            } else {
+                navbar.classList.remove('shadow-lg', 'bg-surface/80');
+            }
+        });
+
+        // --- Intersection Observer for Scroll Animations ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Run animation only once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
