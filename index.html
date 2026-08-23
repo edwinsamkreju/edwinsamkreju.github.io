@@ -133,91 +133,98 @@
     };
   </script>
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://edwinsamkreju.github.io/#website",
-          "url": "https://edwinsamkreju.github.io/",
-          "name": "Edwin Sam K Reju Portfolio",
-          "description": "Official portfolio of Edwin Sam K Reju — Founder and Developer at CarbonIt Labs.",
-          "publisher": {
-            "@id": "https://edwinsamkreju.github.io/#person"
-          },
-          "inLanguage": "en"
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://edwinsamkreju.github.io/#webpage",
-          "url": "https://edwinsamkreju.github.io/",
-          "name": "Edwin Sam K Reju | Founder, Developer & Author",
-          "isPartOf": {
-            "@id": "https://edwinsamkreju.github.io/#website"
-          },
-          "about": {
-            "@id": "https://edwinsamkreju.github.io/#person"
-          }
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://edwinsamkreju.github.io/#organization",
-          "name": "CarbonIt Labs",
-          "url": "https://edwinsamkreju.github.io/",
-          "founder": {
-            "@id": "https://edwinsamkreju.github.io/#person"
-          }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://edwinsamkreju.github.io/#person",
-          "mainEntityOfPage": {
-            "@id": "https://edwinsamkreju.github.io/#webpage"
-          },
-          "name": "Edwin Sam K Reju",
-          "givenName": "Edwin",
-          "url": "https://edwinsamkreju.github.io/",
-          "jobTitle": [
-            "Founder",
-            "CEO",
-            "Software Developer",
-            "Author",
-            "Entrepreneur"
-          ],
-          "worksFor": {
-            "@id": "https://edwinsamkreju.github.io/#organization"
-          },
-          "description": "Indian software developer, author, and entrepreneur. Founder and CEO of CarbonIt Labs. Creator of Opinova, DotCode, CarbonIt Messenger, and Super Tic-Tac-Toe.",
-          "knowsLanguage": [
-            "English",
-            "Malayalam",
-            "Hindi"
-          ],
-          "sameAs": [
-            "https://github.com/edwinsamkreju",
-            "https://linkedin.com/in/edwinsamkreju",
-            "https://x.com/edwinsamkreju",
-            "https://instagram.com/edwinsamkreju",
-            "https://facebook.com/edwin.samkreju",
-            "https://www.youtube.com/@edwinsamkreju",
-            "https://www.wikidata.org/wiki/Q140739171"
-          ]
-        },
-        {
-          "@type": "Book",
-          "@id": "https://edwinsamkreju.github.io/#book-cosmoboy",
-          "name": "Cosmo Boy: Journey to the Edge of the Universe",
-          "alternateName": "Cosmo Boy",
-          "genre": "Science Fiction",
-          "author": {
-            "@id": "https://edwinsamkreju.github.io/#person"
-          }
-        }
+      "@type": "WebSite",
+      "@id": "https://edwinsamkreju.github.io/#website",
+      "url": "https://edwinsamkreju.github.io/",
+      "name": "Edwin Sam K Reju Portfolio",
+      "description": "Official portfolio of Edwin Sam K Reju — Founder and Developer at CarbonIt Labs.",
+      "publisher": {
+        "@id": "https://edwinsamkreju.github.io/#person"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edwinsamkreju.github.io/#webpage",
+      "url": "https://edwinsamkreju.github.io/",
+      "name": "Edwin Sam K Reju | Founder, Developer & Author",
+      "isPartOf": {
+        "@id": "https://edwinsamkreju.github.io/#website"
+      },
+      "about": {
+        "@id": "https://edwinsamkreju.github.io/#person"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://edwinsamkreju.github.io/#organization",
+      "name": "CarbonIt Labs",
+      "url": "https://edwinsamkreju.github.io/",
+      "founder": {
+        "@id": "https://edwinsamkreju.github.io/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://edwinsamkreju.github.io/#person",
+      "mainEntityOfPage": {
+        "@id": "https://edwinsamkreju.github.io/#webpage"
+      },
+      "name": "Edwin Sam K Reju",
+      "givenName": "Edwin",
+      "url": "https://edwinsamkreju.github.io/",
+      "jobTitle": [
+        "Founder",
+        "CEO",
+        "Software Developer",
+        "Author",
+        "Entrepreneur"
+      ],
+      "worksFor": {
+        "@id": "https://edwinsamkreju.github.io/#organization"
+      },
+      "description": "Indian software developer, author, and entrepreneur. Founder and CEO of CarbonIt Labs. Creator of Opinova, DotCode, CarbonIt Messenger, and Super Tic-Tac-Toe.",
+      "knowsLanguage": [
+        "English",
+        "Malayalam",
+        "Hindi"
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "ORCID",
+        "value": "0009-0009-0098-9502",
+        "url": "https://orcid.org/0009-0009-0098-9502"
+      },
+      "sameAs": [
+        "https://orcid.org/0009-0009-0098-9502",
+        "https://github.com/edwinsamkreju",
+        "https://linkedin.com/in/edwinsamkreju",
+        "https://x.com/edwinsamkreju",
+        "https://instagram.com/edwinsamkreju",
+        "https://facebook.com/edwin.samkreju",
+        "https://www.youtube.com/@edwinsamkreju",
+        "https://www.wikidata.org/wiki/Q140739171"
       ]
+    },
+    {
+      "@type": "Book",
+      "@id": "https://edwinsamkreju.github.io/#book-cosmoboy",
+      "name": "Cosmo Boy: Journey to the Edge of the Universe",
+      "alternateName": "Cosmo Boy",
+      "genre": "Science Fiction",
+      "author": {
+        "@id": "https://edwinsamkreju.github.io/#person"
+      }
     }
-  </script>
+  ]
+}
+</script>
 
   <style>
     :root {
