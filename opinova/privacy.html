@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Opinova v1.0.0</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Privacy Policy for Opinova - a local-first AI decision intelligence tool created by Edwin Sam K Reju.">
+    <meta name="author" content="Edwin Sam K Reju">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/CarbonIt-Labs/Opinova/blob/main/logo.png?raw=true">
+    
+    <style>
+        /* CSS Variables & Theme Setup */
+        :root {
+            --bg-dark: #050810;
+            --bg-card: rgba(18, 24, 41, 0.6);
+            --bg-card-hover: rgba(26, 35, 60, 0.85);
+            --border-glow: rgba(0, 180, 255, 0.2);
+            --cyan: #00d2ff;
+            --purple: #9d4edd;
+            --magenta: #e024c3;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gradient-primary: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 50%, var(--magenta) 100%);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #050810, #120b1f, #021118, #0a0510);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 8, 16, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: var(--glass-border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .brand:hover { transform: scale(1.05); }
+
+        .brand img {
+            height: 44px;
+            width: 44px;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .policy-card {
+            background: var(--bg-card);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .policy-section p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-section ul li::before {
+            content: '•';
+            color: var(--magenta);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .highlight-box {
+            background: rgba(0, 210, 255, 0.05);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-main);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: var(--glass-border);
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 5rem;
+        }
+
+        footer p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; }
+        footer a { color: var(--cyan); text-decoration: none; transition: color 0.3s; }
+        footer a:hover { color: var(--magenta); }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.2rem; }
+            .policy-card { padding: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="brand">
+            <img src="https://github.com/CarbonIt-Labs/Opinova/blob/main/logo.png?raw=true" alt="Opinova Logo">
+            <span>Opinova</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#downloads">Download</a></li>
+            <li><a href="index.html#capabilities">Key Features</a></li>
+            <li><a href="index.html#guide">Setup Guide</a></li>
+            <li><a href="https://github.com/CarbonIt-Labs/Opinova" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Container -->
+    <main class="container">
+        <header class="page-header">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: October 2026</p>
+        </header>
+
+        <div class="policy-card">
+            
+            <div class="highlight-box">
+                <p><strong>TL;DR:</strong> Opinova is built with a local-first philosophy. I created Opinova as a personal project to give users full control over their data. Your datasets and local database remain stored strictly on your device.</p>
+            </div>
+
+            <section class="policy-section">
+                <h2>1. Local Data Storage & Ownership</h2>
+                <p>Opinova operates on a local-first architecture. All opinions, feedback entries, suggestions, categories, and analytical outputs are stored in an offline database residing directly on your computer.</p>
+                <ul>
+                    <li>No feedback data is ever collected, tracked, or sent to any central server hosted by me.</li>
+                    <li>You maintain total ownership and control over your locally stored databases and exported report files (CSV/PDF).</li>
+                </ul>
+            </section>
+
+            <section class="policy-section">
+                <h2>2. Gemini API & Third-Party Processing</h2>
+                <p>To deliver AI-powered decision intelligence, Opinova interacts with Google's Gemini API using the API key you provide during setup:</p>
+                <ul>
+                    <li><strong>Your API Key:</strong> Your Google Gemini API key is stored locally in your app settings on your machine and is only used to authorize analysis requests.</li>
+                    <li><strong>Data Transmission:</strong> Only the text prompts and feedback data necessary for generating summaries or priorities are transmitted to Google's API endpoints via secure HTTPS.</li>
+                    <li><strong>Google's Privacy:</strong> Data processed via the Gemini API is governed by <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--cyan);">Google's Privacy Policy</a> and AI Studio Terms of Service.</li>
+                </ul>
+            </section>
+
+            <section class="policy-section">
+                <h2>3. Analytics and Telemetry</h2>
+                <p>Opinova contains zero telemetry, tracking scripts, or analytics engines. There is no automated usage data collection or error reporting sent back to the developer.</p>
+            </section>
+
+            <section class="policy-section">
+                <h2>4. Open Source Transparency</h2>
+                <p>Opinova is open-source software licensed under Apache 2.0. You can inspect, audit, or build the entire codebase from source directly on GitHub to verify all privacy mechanisms.</p>
+            </section>
+
+            <section class="policy-section">
+                <h2>5. Contact</h2>
+                <p>If you have any questions or feedback regarding Opinova's privacy approach, feel free to open an issue or reach out via the official GitHub repository.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 <strong>Edwin Sam K Reju</strong></p>
+        <p>Millions of opinions. One intelligent direction.</p>
+        <p style="margin-top: 5px; font-size: 0.85rem;">
+            <a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | Licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License 2.0</a>
+        </p>
+    </footer>
+
+</body>
+</html>
