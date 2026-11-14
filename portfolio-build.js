@@ -1,230 +1,309 @@
-/* Portfolio build intro: canvas-only visual layer, no changes to existing page components. */
+/* Live portfolio build choreography. Visual-only DOM interaction; original content and links remain intact. */
 (() => {
   "use strict";
+  const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  if (reduced) return;
 
-  const reduceMotion = window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) return;
-
+  const params = new URLSearchParams(location.search);
   try {
-    if (sessionStorage.getItem("edwin-portfolio-build-seen") === "1") return;
-    sessionStorage.setItem("edwin-portfolio-build-seen", "1");
+    if (!params.has("build") && sessionStorage.getItem("edwin-live-build-seen") === "1") return;
+    sessionStorage.setItem("edwin-live-build-seen", "1");
   } catch (_) {}
+
+  const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+  const sections = [
+    { id: "about", label: "Constructing hero layout", selectors: ["#about h1", "#about h2", "#about p", "#about a"] },
+    { id: "projects", label: "Arranging project components", selectors: ["#projects h2", "#projects article", "#projects article h3", "#projects article a"] },
+    { id: "certifications", label: "Aligning credentials grid", selectors: ["#certifications h2", "#certifications article", "#certifications article h3"] },
+    { id: "book", label: "Composing author feature", selectors: ["#book h2", "#book p", "#book a"] },
+    { id: "contact", label: "Building contact and social links", selectors: ["#contact h2", "#contact p", "#contact a"] }
+  ];
+  if (!sections.every(s => $("#" + s.id))) return;
 
   const root = document.createElement("div");
   root.id = "portfolio-build-intro";
-  root.setAttribute("role", "region");
-  root.setAttribute("aria-label", "Portfolio build animation");
   root.innerHTML = `
-    <canvas aria-hidden="true"></canvas>
-    <div class="pb-copy">
-      <p class="pb-eyebrow">EDWIN SAM K REJU / PORTFOLIO INITIALIZING</p>
-      <h2 class="pb-heading">A portfolio, built in front of you.</h2>
-      <p class="pb-subtitle"><span></span><i class="pb-caret" aria-hidden="true"></i></p>
+    <div class="pb-topbar">
+      <div><span class="pb-live-dot"></span><b>EDWIN'S PORTFOLIO</b><small>AI BUILD SESSION</small></div>
+      <span class="pb-counter">INITIALIZING · 00%</span>
+      <button class="pb-skip" type="button">Skip build ↗</button>
     </div>
-    <p class="pb-status" aria-hidden="true">18 CURSORS &nbsp;·&nbsp; 1 DESIGN SYSTEM &nbsp;·&nbsp; 760 PARTICLES</p>
-    <button class="pb-skip" type="button">Skip animation <span aria-hidden="true">↗</span></button>
+    <div class="pb-caption"><span class="pb-step">Preparing workspace</span><span class="pb-detail">Coordinating 18 AI agents</span></div>
+    <div class="pb-pointer-layer" aria-hidden="true"></div>
   `;
   document.body.appendChild(root);
 
-  const canvas = root.querySelector("canvas");
-  const ctx = canvas.getContext("2d", { alpha: true });
-  const typed = root.querySelector(".pb-subtitle span");
-  const skip = root.querySelector(".pb-skip");
-  const previousOverflow = document.body.style.overflow;
-  document.body.style.overflow = "hidden";
+  const pointerLayer = $(".pb-pointer-layer", root);
+  const counter = $(".pb-counter", root);
+  const stepLabel = $(".pb-step", root);
+  const detailLabel = $(".pb-detail", root);
+  const skip = $(".pb-skip", root);
+  const previousOverflow = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = "auto";
 
-  const message = "18 cursors map the interface, select the accent, and shape 760 points into FOLLOW.";
-  let width = 0, height = 0, dpr = 1, frame = 0, start = performance.now();
-  let particles = [];
-  let targets = [];
-  let stopped = false;
-  let lastTyped = -1;
-
-  const cursorRoutes = [
-    [[.08,.42],[.22,.34],[.38,.42],[.52,.28]],
-    [[.90,.40],[.78,.32],[.64,.42],[.52,.28]],
-    [[.12,.72],[.28,.66],[.40,.76],[.52,.64]],
-    [[.88,.72],[.72,.66],[.60,.76],[.52,.64]],
-    [[.30,.20],[.40,.30],[.48,.22],[.52,.28]],
-    [[.70,.20],[.60,.30],[.54,.22],[.52,.28]]
-  ];
-
-  function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, 1.35);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    makeTargets();
+  const colors = ["#60a5fa","#a78bfa","#38bdf8","#c084fc","#93c5fd","#818cf8"];
+  const cursors = [];
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement("div");
+    el.className = "pb-agent";
+    el.innerHTML = '<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 2 L2 23 L8 17 L12 26 L16 24 L12 15 L21 15 Z"/></svg><span>AI-' + String(i+1).padStart(2,"0") + '</span><i></i>';
+    el.style.setProperty("--agent-color", colors[i % colors.length]);
+    pointerLayer.appendChild(el);
+    cursors.push({ el, x: innerWidth/2, y: innerHeight/2, tx: innerWidth/2, ty: innerHeight/2, target: null, phase: i/18 });
   }
 
-  function makeTargets() {
-    const off = document.createElement("canvas");
-    off.width = Math.max(1, Math.floor(width));
-    off.height = Math.max(1, Math.floor(height));
-    const o = off.getContext("2d", { willReadFrequently: true });
-    const fontSize = Math.max(46, Math.min(width * .17, height * .19, 150));
-    o.clearRect(0, 0, off.width, off.height);
-    o.font = "800 " + fontSize + "px Inter, Arial, sans-serif";
-    o.textAlign = "center";
-    o.textBaseline = "middle";
-    o.fillStyle = "#fff";
-    o.fillText("FOLLOW", width / 2, height * .69, width * .88);
-    const data = o.getImageData(0, 0, off.width, off.height).data;
-    const candidates = [];
-    const step = width < 600 ? 4 : 3;
-    for (let y = Math.floor(height * .54); y < Math.floor(height * .82); y += step) {
-      for (let x = 0; x < width; x += step) {
-        if (data[(y * off.width + x) * 4 + 3] > 90) candidates.push({ x, y });
-      }
-    }
-    targets = [];
-    for (let i = 0; i < 760; i++) {
-      const index = Math.floor(i * candidates.length / 760);
-      const point = candidates[Math.min(index, candidates.length - 1)] || {
-        x: width / 2 + (Math.random() - .5) * width * .6,
-        y: height * .69 + (Math.random() - .5) * 40
-      };
-      targets.push({ x: point.x, y: point.y });
-    }
-    if (particles.length !== 760) {
-      particles = targets.map(() => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - .5) * 2,
-        vy: (Math.random() - .5) * 2
-      }));
-    }
+  const highlight = document.createElement("div");
+  highlight.className = "pb-selection";
+  pointerLayer.appendChild(highlight);
+  const handles = [];
+  for (let i = 0; i < 4; i++) {
+    const h = document.createElement("i");
+    h.className = "pb-handle";
+    pointerLayer.appendChild(h);
+    handles.push(h);
+  }
+  const guide = document.createElement("div");
+  guide.className = "pb-guide";
+  pointerLayer.appendChild(guide);
+
+  const footer = $("#contact");
+  const socials = $(".grid", footer);
+  const followWrap = document.createElement("div");
+  followWrap.className = "pb-follow-wrap";
+  followWrap.innerHTML = '<div class="pb-follow-kicker">ALL SYSTEMS BUILT · READY TO CONNECT</div><canvas aria-hidden="true"></canvas><div class="pb-follow-word" aria-label="Follow">FOLLOW</div>';
+  if (socials) socials.insertAdjacentElement("afterend", followWrap);
+  const followCanvas = $("canvas", followWrap);
+  const fctx = followCanvas.getContext("2d");
+
+  let stopped = false, completed = false, raf = 0, start = 0, scrollStart = 0;
+  const DURATION = 51; // deliberate, slow walkthrough
+  const stages = sections.map((s, i) => ({...s, start: 2 + i*8.4, duration: 8.4}));
+  const finalStart = 44;
+  const finalDuration = 7;
+  let activeTarget = null;
+  let targetNodes = [];
+
+  function scrollToSection(id, progress) {
+    const el = $("#" + id);
+    if (!el) return;
+    const top = window.scrollY + el.getBoundingClientRect().top - 78;
+    const eased = progress < .5 ? 2*progress*progress : 1 - Math.pow(-2*progress+2,2)/2;
+    window.scrollTo(0, scrollStart + (top - scrollStart) * eased);
   }
 
-  function drawCursor(x, y, index, alpha) {
-    const colors = ["#60a5fa", "#a78bfa", "#38bdf8"];
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.translate(x, y);
-    ctx.rotate((index % 3 - 1) * .08);
-    ctx.fillStyle = colors[index % colors.length];
-    ctx.strokeStyle = "rgba(7,12,22,.9)";
-    ctx.lineWidth = 1.4;
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(0, 20);
-    ctx.lineTo(5, 15);
-    ctx.lineTo(10, 24);
-    ctx.lineTo(14, 22);
-    ctx.lineTo(9, 13);
-    ctx.lineTo(17, 12);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  function drawWireframes(progress) {
-    const panels = [
-      [.055,.34,.30,.22], [.645,.34,.30,.22],
-      [.055,.62,.40,.14], [.545,.62,.40,.14],
-      [.36,.25,.28,.48]
-    ];
-    ctx.save();
-    ctx.lineWidth = 1;
-    panels.forEach((p, i) => {
-      const reveal = Math.max(0, Math.min(1, (progress - i * .12) * 1.8));
-      if (!reveal) return;
-      const x = p[0] * width, y = p[1] * height;
-      const w = p[2] * width * reveal, h = p[3] * height;
-      ctx.strokeStyle = "rgba(96,165,250," + (.24 * reveal) + ")";
-      ctx.setLineDash([5, 7]);
-      ctx.strokeRect(x, y, w, h);
-      ctx.setLineDash([]);
-      ctx.fillStyle = "rgba(96,165,250," + (.22 * reveal) + ")";
-      for (let k = 0; k < 3; k++) {
-        ctx.fillRect(x + 14, y + 15 + k * 12, Math.max(12, w * (.34 - k * .06)), 2);
-      }
-      ctx.fillStyle = "rgba(167,139,250," + (.14 * reveal) + ")";
-      ctx.fillRect(x + 14, y + h - 17, Math.max(12, w * .22), 3);
+  function getTargets(stage) {
+    const found = stage.selectors.flatMap(sel => $$(sel)).filter(el => {
+      const r = el.getBoundingClientRect();
+      return r.width > 4 && r.height > 4;
     });
-    ctx.restore();
+    return [...new Set(found)];
   }
 
-  function drawSwatch(progress) {
-    if (progress < 0) return;
-    const x = width * .5, y = height * .49;
-    ctx.save();
-    ctx.globalAlpha = Math.min(1, progress * 2);
-    ctx.strokeStyle = "rgba(96,165,250,.8)";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath(); ctx.arc(x, y, 19, 0, Math.PI * 2); ctx.stroke();
-    ctx.fillStyle = "#3b82f6";
-    ctx.beginPath(); ctx.arc(x, y, 10, 0, Math.PI * 2); ctx.fill();
-    ctx.restore();
+  function boxFor(el) {
+    const r = el.getBoundingClientRect();
+    return { left:r.left, top:r.top, width:r.width, height:r.height, right:r.right, bottom:r.bottom, cx:r.left+r.width/2, cy:r.top+r.height/2 };
   }
 
-  function animate(now) {
-    if (stopped) return;
-    const elapsed = (now - start) / 1000;
-    const introProgress = Math.min(1, elapsed / 4.4);
-    ctx.clearRect(0, 0, width, height);
+  function setSelection(el, action) {
+    if (!el) return;
+    activeTarget = el;
+    const b = boxFor(el);
+    highlight.style.display = "block";
+    highlight.style.left = (b.left-7)+"px";
+    highlight.style.top = (b.top-7)+"px";
+    highlight.style.width = (b.width+14)+"px";
+    highlight.style.height = (b.height+14)+"px";
+    highlight.dataset.action = action;
+    handles.forEach((h,i) => {
+      h.style.display = "block";
+      h.style.left = ((i%2 ? b.right : b.left)-5)+"px";
+      h.style.top = ((i>1 ? b.bottom : b.top)-5)+"px";
+    });
+    guide.style.display = "block";
+    guide.style.left = b.left+"px";
+    guide.style.top = (b.bottom+9)+"px";
+    guide.textContent = action;
+  }
 
-    drawWireframes(introProgress);
-    drawSwatch(elapsed - 3.4);
+  function hideSelection() {
+    highlight.style.display = "none";
+    handles.forEach(h => h.style.display = "none");
+    guide.style.display = "none";
+    activeTarget = null;
+  }
 
-    const cursorAlpha = elapsed < 4.8 ? 1 : Math.max(0, 1 - (elapsed - 4.8) * 1.5);
-    for (let i = 0; i < 18; i++) {
-      const route = cursorRoutes[i % cursorRoutes.length];
-      const phase = (elapsed * .42 + i * .071) % 1;
-      const segment = phase * (route.length - 1);
-      const idx = Math.floor(segment);
-      const mix = segment - idx;
-      const a = route[idx], b = route[Math.min(idx + 1, route.length - 1)];
-      const x = (a[0] + (b[0] - a[0]) * mix) * width;
-      const y = (a[1] + (b[1] - a[1]) * mix) * height;
-      drawCursor(x, y, i, cursorAlpha);
+  function pointerDestination(el, index, t, action) {
+    const b = boxFor(el);
+    const corners = [
+      [b.left+Math.min(20,b.width*.2), b.top+Math.min(20,b.height*.2)],
+      [b.right-Math.min(20,b.width*.2), b.top+Math.min(20,b.height*.2)],
+      [b.right-Math.min(20,b.width*.2), b.bottom-Math.min(20,b.height*.2)],
+      [b.left+Math.min(20,b.width*.2), b.bottom-Math.min(20,b.height*.2)],
+      [b.cx,b.cy]
+    ];
+    const phase = (t*0.9 + index*.37) % 1;
+    let corner = Math.floor(phase*corners.length);
+    const next = (corner+1)%corners.length;
+    const mix = phase*corners.length-corner;
+    let x = corners[corner][0] + (corners[next][0]-corners[corner][0])*mix;
+    let y = corners[corner][1] + (corners[next][1]-corners[corner][1])*mix;
+    if (action === "DRAGGING" && index % 3 === 0) {
+      x = b.left + b.width*(.15 + .7*((t*1.4)%1));
+      y = b.cy + Math.sin(t*8+index)*Math.min(14,b.height*.12);
+    } else if (action === "RESIZING" && index % 3 === 1) {
+      x = b.right - 5; y = b.bottom - 5;
+    } else if (action === "TYPING" && index % 3 === 2) {
+      x = b.left + Math.min(b.width-8, 18 + (t*42)%Math.max(24,b.width-24));
+      y = b.cy;
     }
+    return {x,y};
+  }
 
-    const form = Math.max(0, Math.min(1, (elapsed - 4.65) / 1.8));
-    if (form > 0) {
-      const ease = 1 - Math.pow(1 - form, 3);
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i], target = targets[i];
-        p.x += (target.x - p.x) * (.035 + ease * .14);
-        p.y += (target.y - p.y) * (.035 + ease * .14);
-        const shimmer = .65 + .35 * Math.sin(elapsed * 4 + i * .09);
-        ctx.fillStyle = "rgba(147,197,253," + (.25 + .75 * ease) * shimmer + ")";
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, width < 600 ? 1.05 : 1.35, 0, Math.PI * 2);
-        ctx.fill();
+  function animatePointers(nodes, t, action) {
+    if (!nodes.length) return;
+    cursors.forEach((c,i) => {
+      const node = nodes[i % nodes.length];
+      const dest = pointerDestination(node, i, t, action);
+      c.x += (dest.x-c.x)*.12;
+      c.y += (dest.y-c.y)*.12;
+      c.el.style.transform = "translate3d("+c.x+"px,"+c.y+"px,0)";
+      c.el.style.opacity = "1";
+      c.el.classList.toggle("pb-clicking", Math.sin(t*9+i) > .87);
+    });
+  }
+
+  function applyWorkEffect(nodes, t, action) {
+    nodes.forEach((node,i) => {
+      node.classList.add("pb-being-built");
+      const phase = (t*1.25 + i*.19)%1;
+      if (action === "RESIZING" && i%3===0) {
+        node.style.setProperty("--pb-work-scale", String(1 + .018*Math.sin(t*3+i)));
+      } else if (action === "DRAGGING" && i%4===0) {
+        node.style.setProperty("--pb-work-shift", (Math.sin(t*2+i)*4)+"px");
+      } else {
+        node.style.setProperty("--pb-work-scale", String(1 + .006*Math.sin(t*2+i)));
+        node.style.setProperty("--pb-work-shift", "0px");
       }
-    }
+      node.style.setProperty("--pb-work-glow", String(.35 + .3*Math.sin(t*4+i)));
+    });
+  }
 
-    if (elapsed > 1.45) {
-      const count = Math.min(message.length, Math.floor((elapsed - 1.45) * 31));
-      if (count !== lastTyped) {
-        typed.textContent = message.slice(0, count);
-        lastTyped = count;
-      }
-    }
+  function clearWorkEffects() {
+    $$(".pb-being-built").forEach(node => {
+      node.classList.remove("pb-being-built");
+      node.style.removeProperty("--pb-work-scale");
+      node.style.removeProperty("--pb-work-shift");
+      node.style.removeProperty("--pb-work-glow");
+    });
+    hideSelection();
+  }
 
-    if (elapsed > 7.6) {
-      finish();
-      return;
+  function drawFollow(progress, now) {
+    const w = Math.max(1, followWrap.clientWidth);
+    const h = 170;
+    const dpr = Math.min(devicePixelRatio||1, 1.5);
+    if (followCanvas.width !== Math.round(w*dpr) || followCanvas.height !== Math.round(h*dpr)) {
+      followCanvas.width = Math.round(w*dpr);
+      followCanvas.height = Math.round(h*dpr);
+      followCanvas.style.width = w+"px";
+      followCanvas.style.height = h+"px";
     }
-    frame = requestAnimationFrame(animate);
+    fctx.setTransform(dpr,0,0,dpr,0,0);
+    fctx.clearRect(0,0,w,h);
+    fctx.font = "900 "+Math.min(112,w*.19)+"px Inter,Arial,sans-serif";
+    fctx.textAlign = "center"; fctx.textBaseline = "middle";
+    fctx.fillStyle = "#fff";
+    fctx.fillText("FOLLOW",w/2,h/2,w*.94);
+    const image = fctx.getImageData(0,0,Math.round(w*dpr),Math.round(h*dpr));
+    const points = [];
+    const step = Math.max(3,Math.round(4*dpr));
+    for(let y=0;y<image.height;y+=step) for(let x=0;x<image.width;x+=step) {
+      if(image.data[(y*image.width+x)*4+3]>120) points.push({x:x/dpr,y:y/dpr});
+    }
+    fctx.clearRect(0,0,w,h);
+    const count = Math.min(760,points.length);
+    const appear = Math.min(1,progress*1.45);
+    for(let i=0;i<count;i++) {
+      const p=points[Math.floor(i*points.length/count)];
+      const drift=(1-appear)*Math.sin(now*.0015+i)*24;
+      fctx.fillStyle="rgba(147,197,253,"+(0.25+0.75*appear)+")";
+      fctx.beginPath(); fctx.arc(p.x+drift,p.y+drift*.35,1.25,0,Math.PI*2); fctx.fill();
+    }
+    if(progress>=1) followWrap.classList.add("pb-follow-done");
   }
 
   function finish() {
-    if (stopped) return;
-    stopped = true;
-    cancelAnimationFrame(frame);
-    root.classList.add("pb-leaving");
-    document.body.style.overflow = previousOverflow;
-    window.setTimeout(() => root.remove(), 750);
+    if(stopped) return;
+    stopped=true; cancelAnimationFrame(raf);
+    clearWorkEffects();
+    cursors.forEach(c=>c.el.style.opacity="0");
+    root.classList.add("pb-finished");
+    document.documentElement.style.scrollBehavior=previousOverflow;
+    try { sessionStorage.setItem("edwin-live-build-complete","1"); } catch(_){}
+    window.setTimeout(()=>root.remove(),900);
   }
 
-  skip.addEventListener("click", finish);
-  window.addEventListener("resize", resize, { passive: true });
-  resize();
-  frame = requestAnimationFrame(animate);
+  function frame(now) {
+    if(stopped) return;
+    const elapsed=(now-start)/1000;
+    const percent=Math.min(100,Math.round(elapsed/DURATION*100));
+    counter.textContent="BUILDING · "+String(percent).padStart(2,"0")+"%";
+
+    if(elapsed<2) {
+      stepLabel.textContent="Initializing the workspace";
+      detailLabel.textContent="Mapping the real page structure";
+      const introNodes=getTargets(sections[0]);
+      animatePointers(introNodes,elapsed,"SELECTING");
+    } else if(elapsed<finalStart) {
+      const index=Math.min(stages.length-1,Math.floor((elapsed-2)/8.4));
+      const stage=stages[index];
+      const local=Math.max(0,Math.min(1,(elapsed-stage.start)/stage.duration));
+      const action=local<.28?"SELECTING":local<.58?"DRAGGING":local<.82?"RESIZING":"TYPING";
+      if(index===0 && local<.04) scrollStart=window.scrollY;
+      scrollToSection(stage.id,Math.min(1,local*1.22));
+      targetNodes=getTargets(stage);
+      stepLabel.textContent=stage.label;
+      detailLabel.textContent=action+" · aligning live elements";
+      if(targetNodes.length) {
+        const target=targetNodes[Math.floor((local*targetNodes.length*1.6)%targetNodes.length)];
+        setSelection(target,action+" ELEMENT");
+        animatePointers(targetNodes,elapsed,action);
+        applyWorkEffect(targetNodes,elapsed,action);
+      }
+    } else {
+      const progress=Math.min(1,(elapsed-finalStart)/finalDuration);
+      scrollToSection("contact",Math.min(1,progress*1.5));
+      stepLabel.textContent="Final pass: follow and connect";
+      detailLabel.textContent=progress<.6?"Finishing social links and footer spacing":"Assembling FOLLOW from 760 particles";
+      const nodes=getTargets(sections[4]);
+      animatePointers(nodes,elapsed,"RESIZING");
+      if(nodes.length) {
+        setSelection(nodes[Math.floor(progress*nodes.length)%nodes.length],"FINAL ALIGNMENT");
+        applyWorkEffect(nodes,elapsed,"RESIZING");
+      }
+      followWrap.classList.add("pb-follow-active");
+      drawFollow(progress,now);
+      if(progress>=1) {
+        counter.textContent="COMPLETE · 100%";
+        stepLabel.textContent="Website assembled";
+        detailLabel.textContent="All sections ready · enjoy the portfolio";
+        finish();
+        return;
+      }
+    }
+
+    raf=requestAnimationFrame(frame);
+  }
+
+  function begin() {
+    window.scrollTo(0,0);
+    scrollStart=0;
+    start=performance.now();
+    raf=requestAnimationFrame(frame);
+  }
+
+  skip.addEventListener("click",finish);
+  window.addEventListener("beforeunload",()=>{stopped=true;cancelAnimationFrame(raf);});
+  begin();
 })();
