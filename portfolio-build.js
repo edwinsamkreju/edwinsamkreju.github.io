@@ -83,6 +83,7 @@
   const finalDuration = 7;
   let activeTarget = null;
   let targetNodes = [];
+  let activeStageIndex = -1;
 
   function scrollToSection(id, progress) {
     const el = $("#" + id);
@@ -258,6 +259,7 @@
     } else if(elapsed<finalStart) {
       const index=Math.min(stages.length-1,Math.floor((elapsed-2)/8.4));
       const stage=stages[index];
+      if (index !== activeStageIndex) { activeStageIndex = index; scrollStart = window.scrollY; }
       const local=Math.max(0,Math.min(1,(elapsed-stage.start)/stage.duration));
       const action=local<.28?"SELECTING":local<.58?"DRAGGING":local<.82?"RESIZING":"TYPING";
       if(index===0 && local<.04) scrollStart=window.scrollY;
@@ -273,7 +275,10 @@
       }
     } else {
       const progress=Math.min(1,(elapsed-finalStart)/finalDuration);
-      scrollToSection("contact",Math.min(1,progress*1.5));
+      if (activeStageIndex !== 99) { activeStageIndex = 99; scrollStart = window.scrollY; }
+      const followTop = window.scrollY + followWrap.getBoundingClientRect().top - Math.max(100, window.innerHeight * .38);
+      const eased = progress < .5 ? 2*progress*progress : 1 - Math.pow(-2*progress+2,2)/2;
+      window.scrollTo(0, scrollStart + (followTop - scrollStart) * eased);
       stepLabel.textContent="Final pass: follow and connect";
       detailLabel.textContent=progress<.6?"Finishing social links and footer spacing":"Assembling FOLLOW from 760 particles";
       const nodes=getTargets(sections[4]);
