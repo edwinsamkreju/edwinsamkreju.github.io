@@ -1,98 +1,89 @@
-/* Portfolio build intro — additive layer; existing site styles remain unchanged. */
+/* Live build animation layer. Keeps the original portfolio layout and content. */
 #portfolio-build-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  color: #f8fafc;
-  background:
-    radial-gradient(ellipse at 50% 58%, rgba(37, 99, 235, .13), transparent 48%),
-    rgba(7, 12, 22, .985);
-  opacity: 1;
-  transition: opacity 700ms ease, visibility 700ms ease;
-  isolation: isolate;
+  position: fixed; inset: 0; z-index: 99990; pointer-events: none;
+  color: #eaf2ff; font-family: Inter,system-ui,sans-serif;
 }
-#portfolio-build-intro.pb-leaving { opacity: 0; visibility: hidden; pointer-events: none; }
-#portfolio-build-intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-#portfolio-build-intro .pb-copy {
-  position: absolute;
-  z-index: 2;
-  top: clamp(52px, 12vh, 120px);
-  left: max(24px, calc((100vw - 1120px) / 2));
-  right: 24px;
-  max-width: 900px;
-  pointer-events: none;
+#portfolio-build-intro .pb-topbar {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+  width: min(900px,calc(100vw - 28px)); min-height: 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:8px 12px; border:1px solid rgba(148,163,184,.2); border-radius:14px;
+  background:rgba(7,12,22,.88); backdrop-filter:blur(16px);
+  box-shadow:0 12px 40px rgba(0,0,0,.25); pointer-events:auto;
 }
-#portfolio-build-intro .pb-eyebrow {
-  margin: 0 0 16px;
-  color: #60a5fa;
-  font: 600 11px/1.4 "Fira Code", ui-monospace, monospace;
-  letter-spacing: .22em;
-  text-transform: uppercase;
+#portfolio-build-intro .pb-topbar > div {display:flex;align-items:center;gap:9px;min-width:0}
+#portfolio-build-intro .pb-topbar b {font-size:10px;letter-spacing:.12em;white-space:nowrap}
+#portfolio-build-intro .pb-topbar small {font:9px "Fira Code",monospace;color:#7c91ae;letter-spacing:.08em}
+#portfolio-build-intro .pb-live-dot {width:7px;height:7px;border-radius:50%;background:#60a5fa;box-shadow:0 0 12px #60a5fa;animation:pb-pulse 1.2s infinite}
+#portfolio-build-intro .pb-counter {font:10px "Fira Code",monospace;color:#93c5fd;white-space:nowrap}
+#portfolio-build-intro .pb-skip {border:1px solid rgba(148,163,184,.25);border-radius:999px;background:#17243a;color:#dbeafe;padding:8px 11px;font-size:10px;cursor:pointer;white-space:nowrap}
+#portfolio-build-intro .pb-skip:hover {background:#263b5b}
+#portfolio-build-intro .pb-caption {
+  position:fixed;left:50%;bottom:20px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  width:min(90vw,520px);padding:11px 16px;border-radius:12px;
+  border:1px solid rgba(96,165,250,.2);background:rgba(7,12,22,.82);
+  backdrop-filter:blur(12px);text-align:center;
 }
-#portfolio-build-intro .pb-heading {
-  margin: 0;
-  max-width: 850px;
-  color: #f8fafc;
-  font: 700 clamp(28px, 5vw, 58px)/1.12 Inter, system-ui, sans-serif;
-  letter-spacing: -.045em;
+#portfolio-build-intro .pb-step {font-size:12px;font-weight:650;color:#e2edff}
+#portfolio-build-intro .pb-detail {font:9px "Fira Code",monospace;color:#7fa7d8;letter-spacing:.04em}
+#portfolio-build-intro .pb-pointer-layer {position:fixed;inset:0;overflow:hidden}
+#portfolio-build-intro .pb-agent {
+  position:fixed;left:0;top:0;z-index:5;display:flex;align-items:flex-start;gap:3px;
+  width:74px;height:42px;will-change:transform;transition:filter .15s;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.65));
 }
-#portfolio-build-intro .pb-subtitle {
-  margin: 18px 0 0;
-  min-height: 1.8em;
-  color: #94a3b8;
-  font: 400 clamp(12px, 1.5vw, 15px)/1.7 "Fira Code", ui-monospace, monospace;
+#portfolio-build-intro .pb-agent svg {width:17px;height:21px;overflow:visible;flex:none}
+#portfolio-build-intro .pb-agent svg path {fill:var(--agent-color);stroke:#07101e;stroke-width:1.4;stroke-linejoin:round}
+#portfolio-build-intro .pb-agent span {margin-top:12px;padding:2px 4px;border-radius:4px;background:var(--agent-color);color:#07101e;font:700 8px "Fira Code",monospace;white-space:nowrap}
+#portfolio-build-intro .pb-agent i {position:absolute;left:3px;top:3px;width:18px;height:18px;border:1px solid var(--agent-color);border-radius:50%;opacity:0}
+#portfolio-build-intro .pb-agent.pb-clicking i {opacity:.9;transform:scale(1.6);transition:transform .15s}
+#portfolio-build-intro .pb-selection {
+  display:none;position:fixed;z-index:3;border:1px dashed #60a5fa;border-radius:7px;
+  background:rgba(59,130,246,.055);box-shadow:0 0 0 1px rgba(96,165,250,.12),0 0 25px rgba(59,130,246,.13);
+  pointer-events:none;transition:all .18s ease;
 }
-#portfolio-build-intro .pb-caret {
-  display: inline-block;
-  width: 7px;
-  height: 1em;
-  margin-left: 4px;
-  vertical-align: -.12em;
-  background: #60a5fa;
-  animation: pb-blink .8s steps(2, start) infinite;
+#portfolio-build-intro .pb-handle {display:none;position:fixed;z-index:4;width:9px;height:9px;background:#dbeafe;border:2px solid #3b82f6;border-radius:2px;pointer-events:none}
+#portfolio-build-intro .pb-guide {
+  display:none;position:fixed;z-index:4;padding:4px 7px;border-radius:4px;
+  background:#2563eb;color:white;font:8px "Fira Code",monospace;letter-spacing:.08em;pointer-events:none;
 }
-#portfolio-build-intro .pb-skip {
-  position: absolute;
-  z-index: 4;
-  top: 22px;
-  right: 24px;
-  padding: 10px 14px;
-  border: 1px solid rgba(148, 163, 184, .3);
-  border-radius: 999px;
-  color: #cbd5e1;
-  background: rgba(15, 23, 42, .65);
-  font: 500 12px/1 Inter, system-ui, sans-serif;
-  cursor: pointer;
-  transition: background .2s ease, border-color .2s ease, color .2s ease;
+.pb-being-built {
+  position:relative!important;outline:1px solid rgba(96,165,250,var(--pb-work-glow,.5))!important;
+  outline-offset:5px;filter:drop-shadow(0 0 9px rgba(59,130,246,.15));
+  transform:translateX(var(--pb-work-shift,0px)) scale(var(--pb-work-scale,1));
+  transition:transform .22s ease,outline-color .22s ease,filter .22s ease;
 }
-#portfolio-build-intro .pb-skip:hover,
-#portfolio-build-intro .pb-skip:focus-visible {
-  color: #fff;
-  border-color: rgba(96, 165, 250, .8);
-  background: rgba(30, 41, 59, .9);
-  outline: 2px solid #60a5fa;
-  outline-offset: 3px;
+.pb-follow-wrap {
+  position:relative;max-width:760px;margin:0 auto 42px;padding:22px 12px 8px;
+  opacity:0;transform:translateY(22px) scale(.97);
+  transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1);
+  text-align:center;overflow:hidden;
 }
-#portfolio-build-intro .pb-status {
-  position: absolute;
-  z-index: 2;
-  left: max(24px, calc((100vw - 1120px) / 2));
-  bottom: 30px;
-  color: #64748b;
-  font: 11px/1.5 "Fira Code", ui-monospace, monospace;
-  letter-spacing: .08em;
-  pointer-events: none;
+.pb-follow-wrap.pb-follow-active {opacity:1;transform:translateY(0) scale(1)}
+.pb-follow-wrap canvas {display:block;max-width:100%;margin:0 auto;opacity:.95}
+.pb-follow-word {
+  position:absolute;left:0;right:0;top:55px;text-align:center;
+  color:transparent;-webkit-text-stroke:1px rgba(96,165,250,.15);
+  font:900 clamp(48px,12vw,100px)/1 Inter,system-ui,sans-serif;
+  letter-spacing:.08em;pointer-events:none;
 }
-@keyframes pb-blink { to { visibility: hidden; } }
-@media (max-width: 640px) {
-  #portfolio-build-intro .pb-copy { top: 17vh; }
-  #portfolio-build-intro .pb-status { bottom: 18px; font-size: 9px; }
-  #portfolio-build-intro .pb-skip { top: 14px; right: 14px; }
+.pb-follow-kicker {margin-bottom:2px;color:#60a5fa;font:9px "Fira Code",monospace;letter-spacing:.18em}
+.pb-follow-done {filter:drop-shadow(0 0 18px rgba(59,130,246,.25))}
+#portfolio-build-intro.pb-finished {opacity:0;transition:opacity .8s ease}
+@keyframes pb-pulse {50%{opacity:.35;transform:scale(.8)}}
+@media(max-width:640px) {
+  #portfolio-build-intro .pb-topbar {top:8px;padding:7px 8px;gap:6px}
+  #portfolio-build-intro .pb-topbar b {font-size:8px}
+  #portfolio-build-intro .pb-topbar small {display:none}
+  #portfolio-build-intro .pb-counter {font-size:8px}
+  #portfolio-build-intro .pb-skip {font-size:9px;padding:7px 8px}
+  #portfolio-build-intro .pb-caption {bottom:10px}
+  #portfolio-build-intro .pb-agent {transform-origin:top left}
+  #portfolio-build-intro .pb-agent span {font-size:7px}
 }
-@media (prefers-reduced-motion: reduce) {
-  #portfolio-build-intro { display: none !important; }
-  #portfolio-build-intro .pb-caret { animation: none; }
+@media(prefers-reduced-motion:reduce) {
+  #portfolio-build-intro {display:none!important}
+  .pb-being-built {transform:none!important;filter:none!important}
+  .pb-follow-wrap {opacity:1;transform:none}
 }
