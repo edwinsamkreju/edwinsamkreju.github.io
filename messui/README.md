@@ -1,32 +1,29 @@
-# Mori — Messenger Preview
+# Mori — Premium Messenger Prototype
 
-A responsive, front-end-only messenger concept built with plain HTML, CSS and JavaScript.
+A responsive Telegram-inspired messenger interface built with plain HTML, CSS and JavaScript.
 
 ## Live preview
-
 https://edwinsamkreju.github.io/messui/
 
-## Explore
+## Included in this prototype
+- Responsive desktop and mobile messenger layout
+- Conversation search, unread and group filters
+- Pinned, saved, muted and archived conversation controls
+- Local demo conversations, simulated replies and typing indicator
+- Emoji picker, attachment placeholders and voice-note placeholder
+- Message reactions plus reply, copy, forward and pin quick actions
+- Per-chat search, local text export and pinned-message banner
+- Conversation details, profile/preferences modal and dark appearance
+- Browser-local demo persistence
 
-- Search conversations and filter by all, unread or groups.
-- Open a conversation, send messages and see a simulated reply.
-- Use the conversation menu to pin, save, mute or archive a chat.
-- Create a new placeholder conversation.
-- Add emoji, simulated attachments and voice-note placeholders.
-- React to a message, inspect the details panel and try the responsive mobile layout.
-- Toggle dark appearance in Preferences.
-- Demo conversations and preferences are stored in your browser's local storage.
+## Important limitations
+This is a frontend prototype hosted on GitHub Pages. It does not provide real accounts, cross-device sync, real message delivery, push notifications, cloud media storage, end-to-end encryption, bots, or voice/video calls. Replies and attachments are simulations. Do not use it to send private or sensitive information.
 
-## Files
-
-- index.html — app structure and metadata
-- styles.css — responsive layout, visual system and themes
-- app.js — placeholder data and interactive behavior
-
-## Important
-
-This is a UI prototype only. It does not include authentication, a server, real message delivery, realtime sync, calling, notifications or cloud storage. Messages typed into the preview remain in the current browser's local storage. Use Preferences → Reset demo data to return to the original sample state.
+## Project files
+- `index.html` — app structure
+- `styles.css` — primary visual system and responsive layout
+- `app.js` — demo data and core interactions
+- `mori-plus.css` / `mori-plus.js` — enhanced Telegram-inspired message tools
 
 ## Deploy
-
-The folder lives inside the edwinsamkreju.github.io repository. GitHub Pages serves it at /messui/ from the existing Pages site.
+The app lives in `/messui/` inside the existing `edwinsamkreju.github.io` Pages repository.
