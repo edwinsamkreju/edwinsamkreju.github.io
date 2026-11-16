@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f4">
+  <meta name="description" content="Mori — a calm, considered space for conversations.">
+  <title>Mori — Messages, with room to breathe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell" id="appShell">
+    <aside class="nav-rail" aria-label="Main navigation">
+      <a class="brand-mark" href="#messages" aria-label="Mori home">
+        <span class="brand-symbol"><span></span><span></span><span></span></span>
+      </a>
+      <nav class="rail-nav">
+        <button class="rail-button active" type="button" data-nav="messages" aria-label="Messages" title="Messages"><span data-icon="message-square"></span><i class="nav-dot"></i></button>
+        <button class="rail-button" type="button" data-nav="contacts" aria-label="People" title="People"><span data-icon="users"></span></button>
+        <button class="rail-button" type="button" data-nav="calls" aria-label="Calls" title="Calls"><span data-icon="phone"></span></button>
+        <button class="rail-button" type="button" data-nav="saved" aria-label="Saved" title="Saved"><span data-icon="bookmark"></span></button>
+      </nav>
+      <div class="rail-bottom">
+        <button class="rail-button" type="button" id="helpButton" aria-label="Help" title="Help"><span data-icon="circle-help"></span></button>
+        <button class="rail-button" type="button" id="settingsButton" aria-label="Settings" title="Settings"><span data-icon="sliders-horizontal"></span></button>
+        <button class="profile-trigger" type="button" id="profileButton" aria-label="Your profile" title="Your profile">
+          <span class="avatar avatar-you">ES</span><i class="online-dot"></i>
+        </button>
+      </div>
+    </aside>
+
+    <section class="inbox-panel" aria-label="Conversation list">
+      <header class="inbox-header">
+        <div>
+          <div class="eyebrow" id="sectionEyebrow">YOUR SPACE</div>
+          <h1 id="sectionTitle">Messages<span class="heading-period">.</span></h1>
+        </div>
+        <button class="icon-button compose-button" id="newChatButton" type="button" aria-label="New conversation" title="New conversation"><span data-icon="square-pen"></span></button>
+      </header>
+
+      <label class="search-field" for="conversationSearch">
+        <span data-icon="search"></span>
+        <input id="conversationSearch" type="search" placeholder="Search conversations" autocomplete="off">
+        <kbd>⌘ K</kbd>
+      </label>
+
+      <div class="filter-row" role="tablist" aria-label="Conversation filters">
+        <button class="filter-chip active" type="button" data-filter="all" role="tab" aria-selected="true">All <span id="allCount">8</span></button>
+        <button class="filter-chip" type="button" data-filter="unread" role="tab" aria-selected="false">Unread</button>
+        <button class="filter-chip" type="button" data-filter="groups" role="tab" aria-selected="false">Groups</button>
+      </div>
+
+      <div class="list-caption"><span id="listCaption">PINNED & RECENT</span><button class="subtle-action" type="button" id="sortButton"><span data-icon="arrow-down-wide-narrow"></span> Latest</button></div>
+      <div class="conversation-list" id="conversationList" aria-live="polite"></div>
+
+      <footer class="inbox-footer">
+        <span class="sync-indicator"><i></i> Everything up to date</span>
+        <span class="footer-version">MORI <b>·</b> PREVIEW</span>
+      </footer>
+    </section>
+
+    <section class="chat-panel" id="chatPanel" aria-label="Chat">
+      <header class="chat-header">
+        <button class="icon-button mobile-back" id="backToInbox" type="button" aria-label="Back to conversations"><span data-icon="arrow-left"></span></button>
+        <div class="chat-person" id="chatPerson"></div>
+        <div class="chat-header-actions">
+          <button class="icon-button" type="button" id="voiceCallButton" aria-label="Start voice call" title="Voice call"><span data-icon="phone"></span></button>
+          <button class="icon-button" type="button" id="videoCallButton" aria-label="Start video call" title="Video call"><span data-icon="video"></span></button>
+          <span class="action-divider"></span>
+          <button class="icon-button" type="button" id="detailsButton" aria-label="Conversation details" title="Conversation details"><span data-icon="panel-right"></span></button>
+          <button class="icon-button desktop-only" type="button" id="chatMenuButton" aria-label="More conversation options" title="More options"><span data-icon="ellipsis"></span></button>
+        </div>
+      </header>
+
+      <div class="chat-scroll" id="chatScroll">
+        <div class="chat-intro" id="chatIntro"></div>
+        <div class="message-stream" id="messageStream" aria-live="polite"></div>
+        <div class="typing-row" id="typingRow" hidden><span class="typing-avatar" id="typingAvatar">MC</span><span class="typing-dots"><i></i><i></i><i></i></span><span id="typingLabel">Mia is typing</span></div>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="reply-context" id="replyContext" hidden><span>Replying to a message</span><button type="button" id="cancelReply" aria-label="Cancel reply"><span data-icon="x"></span></button></div>
+        <form class="composer" id="messageForm">
+          <button class="composer-tool add-tool" type="button" id="attachmentButton" aria-label="Add attachment" title="Add attachment"><span data-icon="plus"></span></button>
+          <input id="messageInput" type="text" maxlength="1200" placeholder="Write a message..." autocomplete="off" aria-label="Write a message">
+          <div class="composer-actions">
+            <button class="composer-tool" type="button" id="emojiButton" aria-label="Add emoji" title="Add emoji"><span data-icon="smile"></span></button>
+            <button class="composer-tool" type="button" id="voiceNoteButton" aria-label="Send a voice note" title="Voice note"><span data-icon="mic"></span></button>
+            <button class="send-button" type="submit" aria-label="Send message" title="Send message"><span data-icon="arrow-up"></span></button>
+          </div>
+        </form>
+        <div class="composer-hint"><span>↵ to send</span><span>Just a demo space. Your messages stay on this device.</span></div>
+      </div>
+    </section>
+
+    <aside class="details-panel" id="detailsPanel" aria-label="Conversation details">
+      <header class="details-header"><span>DETAILS</span><button class="icon-button mobile-details-close" type="button" id="closeDetails" aria-label="Close details"><span data-icon="x"></span></button><button class="icon-button desktop-only" type="button" id="closeDetailsDesktop" aria-label="Close details"><span data-icon="x"></span></button></header>
+      <div id="detailsContent"></div>
+    </aside>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-header"><div><div class="eyebrow">MORI WORKSPACE</div><h2 id="modalTitle">New conversation</h2></div><button class="icon-button" type="button" id="modalClose" aria-label="Close"><span data-icon="x"></span></button></header>
+      <div class="modal-content" id="modalContent"></div>
+    </section>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
